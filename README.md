@@ -33,3 +33,16 @@ Please [install it for your code editor](https://scalameta.org/scalafmt/docs/ins
 if you're going to contribute to this project.
 
 If you don't install it, please run `scalafmtAll` in the sbt console before committing.
+
+
+------------------------------------------
+Extensions
+------------------------------------------
+
+Create a similar function to this `moves` function called `reinforcementMoves` (it shows pieces that are able to move to a particular square on the same team as the piece owner):
+https://github.com/7hoenix/scalachess/blob/master/src/main/scala/Actor.scala#L15
+
+Considerations:
+
+- Square ownership matters. E.g. if a monarch is involved then they are only able to reinforce a square that they have ownership of.
+- Pawns reinforce only via attacking (diagonals). Although they are able to move to squares which does remove square ownership for open diagonals, ranks, and files that they are now blocking. And also implies gaining square ownership, so if a pawn moves to the square first then that should also be considered when calculating `reinforcementMoves`. -> Use `!` symbol in UI to represent this warning graphicaly.
